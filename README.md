@@ -22,7 +22,7 @@ We build **ephemeral, zero-log communication tools**. The server is a pure relay
 
 ### ⚡ What We Ship
 ```
-🔥 Disposable chat rooms          No accounts needed
+🔥 Disposable chat rooms           No accounts needed
 🎤 Ephemeral voice messages        Listen once, gone forever  
 ⌨️ 37 slash commands               /msg /ban /mute /poll /dice /play
 🛡️ Room admin system               /admin /kick /warn /rules /pin
