@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&width=600&lines=%F0%9F%94%A5+BurnChat;Disposable+Chat+Rooms;No+Accounts.+No+Logs.+No+Traces.;Messages+Live+in+RAM+%2B+SessionStorage" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&width=600&lines=%F0%9F%94%A5+BurnChat;Disposable+Chat+Rooms;No+Accounts.+No+Logs.+No+Traces.;Server+Stores+Nothing" alt="Typing SVG" />
 
 <br><br>
 
@@ -16,7 +16,7 @@
 
 ### 🔥 What is BurnChat?
 
-We build **ephemeral, zero-log communication tools**. Messages live in server RAM during the session and cache in your browser's sessionStorage. Server copy burns with the room. Browser copy dies with the tab. **Nothing ever touches disk.**
+We build **ephemeral, zero-log communication tools**. The server is a pure relay — messages pass through and are **never stored**. The only copy lives in your browser's sessionStorage and dies when you close the tab. No database. No disk. No RAM storage. **Nothing.**
 
 ---
 
@@ -31,10 +31,10 @@ We build **ephemeral, zero-log communication tools**. Messages live in server RA
 📋 WordPress plugin                Install from WP admin
 🌗 Dark/Light themes               Auto-detection
 💬 Private messaging               Whispers + away auto-reply
-🎲 Polls & dice                    /poll /dice /coinflip
+🎲 Polls & dice                    /poll /dice
 📌 Pinned messages                 Sticky bar at top of chat
 ⏱️ Chat cooldown                   Admin-controlled rate limit
-🔒 Dual-layer privacy              Server RAM + browser sessionStorage
+🔒 Zero server storage             Pure relay — nothing stored
 ```
 
 ---
@@ -58,11 +58,13 @@ We build **ephemeral, zero-log communication tools**. Messages live in server RA
 
 | Layer | What happens |
 |-------|-------------|
-| **Server** | Messages in RAM only — destroyed when room burns |
-| **Browser** | Messages in sessionStorage — destroyed when tab closes |
-| **Disk** | Zero chat data ever written. Period. |
+| **Server** | Pure relay — messages pass through, never stored |
+| **Browser** | Messages in sessionStorage — dies when tab closes |
+| **Disk** | Zero data ever written. Period. |
 | **nginx** | `access_log off`, `error_log /dev/null` |
 | **systemd** | `StandardOutput=null` |
+
+**The server never holds a single message.** Your browser is the only place messages exist — and only until you close the tab. There is nothing to subpoena, nothing to breach, nothing to leak.
 
 ---
 
@@ -84,11 +86,12 @@ We build **ephemeral, zero-log communication tools**. Messages live in server RA
 - [x] Admin system with /adminpw
 - [x] Embeddable widget + configurator
 - [x] WordPress plugin
-- [x] Client-side message caching (sessionStorage)
+- [x] Client-only message storage (sessionStorage)
 - [x] Polls, dice, pinned messages
 - [x] /warn, /rules, /announce, /roominfo
 - [x] Share via Telegram, WhatsApp, X, email
 - [x] Open source on GitHub
+- [x] Server as pure relay — zero message storage
 - [ ] E2E encryption
 - [ ] WebRTC peer-to-peer voice chat
 - [ ] Collaborative pixel canvas
@@ -98,7 +101,7 @@ We build **ephemeral, zero-log communication tools**. Messages live in server RA
 
 <div align="center">
 
-**The safest message is one that doesn't exist.**
+**The server never stores a single message.**
 
 🔥 [burnchat.io](https://burnchat.io)
 
