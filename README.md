@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&width=600&lines=%F0%9F%94%A5+BurnChat;Disposable+Chat+Rooms;No+Accounts.+No+Logs.+No+Traces.;Messages+Live+in+RAM+Only" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&width=600&lines=%F0%9F%94%A5+BurnChat;Disposable+Chat+Rooms;No+Accounts.+No+Logs.+No+Traces.;Messages+Live+in+RAM+%2B+SessionStorage" alt="Typing SVG" />
 
 <br><br>
 
@@ -8,6 +8,7 @@
 [![Widget](https://img.shields.io/badge/📦_Widget-Embed_Free-ff6b35?style=for-the-badge)](https://burnchat.io/widget)
 [![Blog](https://img.shields.io/badge/📝_Blog-Read-333?style=for-the-badge)](https://burnchat.io/blog)
 [![Twitter](https://img.shields.io/badge/𝕏-Follow-000?style=for-the-badge)](https://x.com/burnchatio)
+[![WordPress](https://img.shields.io/badge/WordPress-Plugin-21759B?style=for-the-badge&logo=wordpress)](https://burnchat.io/widget)
 
 </div>
 
@@ -15,7 +16,7 @@
 
 ### 🔥 What is BurnChat?
 
-We build **ephemeral, zero-log communication tools**. Messages exist only in RAM — no database, no disk, no trace. When a room burns, everything is destroyed permanently.
+We build **ephemeral, zero-log communication tools**. Messages live in server RAM during the session and cache in your browser's sessionStorage. Server copy burns with the room. Browser copy dies with the tab. **Nothing ever touches disk.**
 
 ---
 
@@ -23,12 +24,17 @@ We build **ephemeral, zero-log communication tools**. Messages exist only in RAM
 ```
 🔥 Disposable chat rooms          No accounts needed
 🎤 Ephemeral voice messages        Listen once, gone forever  
-⌨️ 20+ slash commands              /msg /ban /mute /play
-🛡️ Room admin system               Moderation without identity
+⌨️ 37 slash commands               /msg /ban /mute /poll /dice /play
+🛡️ Room admin system               /admin /kick /warn /rules /pin
 🐍 Multiplayer Snake               Play inside the chat
 📦 Embeddable widget               One line of code
+📋 WordPress plugin                Install from WP admin
 🌗 Dark/Light themes               Auto-detection
-🔒 Zero logs at every layer        App, nginx, systemd, RAM
+💬 Private messaging               Whispers + away auto-reply
+🎲 Polls & dice                    /poll /dice /coinflip
+📌 Pinned messages                 Sticky bar at top of chat
+⏱️ Chat cooldown                   Admin-controlled rate limit
+🔒 Dual-layer privacy              Server RAM + browser sessionStorage
 ```
 
 ---
@@ -48,6 +54,18 @@ We build **ephemeral, zero-log communication tools**. Messages exist only in RAM
 
 ---
 
+### 🔐 Privacy Architecture
+
+| Layer | What happens |
+|-------|-------------|
+| **Server** | Messages in RAM only — destroyed when room burns |
+| **Browser** | Messages in sessionStorage — destroyed when tab closes |
+| **Disk** | Zero chat data ever written. Period. |
+| **nginx** | `access_log off`, `error_log /dev/null` |
+| **systemd** | `StandardOutput=null` |
+
+---
+
 ### 📊 Stats
 
 <div align="center">
@@ -62,9 +80,15 @@ We build **ephemeral, zero-log communication tools**. Messages exist only in RAM
 ### 🗺️ Roadmap
 
 - [x] Voice messages with listen-once
-- [x] 20+ slash commands
+- [x] 37 slash commands
 - [x] Admin system with /adminpw
-- [x] Embeddable widget
+- [x] Embeddable widget + configurator
+- [x] WordPress plugin
+- [x] Client-side message caching (sessionStorage)
+- [x] Polls, dice, pinned messages
+- [x] /warn, /rules, /announce, /roominfo
+- [x] Share via Telegram, WhatsApp, X, email
+- [x] Open source on GitHub
 - [ ] E2E encryption
 - [ ] WebRTC peer-to-peer voice chat
 - [ ] Collaborative pixel canvas
